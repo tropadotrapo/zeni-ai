@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#09090D">
+    <meta name="description" content="Conheça os planos Gratuito, Plus e Pro da ZENI AI.">
+    <title>Planos ZENI AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=zeni-chat-1">
+  </head>
+  <body class="plans-page">
+    <header class="plans-header">
+      <a class="brand" href="/" aria-label="ZENI AI, voltar ao chat">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-name">ZENI<span>AI</span></span>
+      </a>
+      <a class="back-to-chat" href="/">Voltar ao chat <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="plans-main">
+      <div class="plans-intro">
+        <span class="plans-eyebrow">PLANOS ZENI AI</span>
+        <h1>Escolha seu plano</h1>
+        <p>Encontre o espaço ideal para suas ideias e tenha a ZENI ao seu lado.</p>
+        <div class="plan-account-status" id="planAccountStatus" role="status" aria-live="polite">
+          Consultando sua conta...
+        </div>
+      </div>
+
+      <section class="pricing-grid" aria-label="Planos disponíveis">
+        <article class="pricing-card" data-plan-card="free">
+          <div class="pricing-card-heading">
+            <span class="pricing-plan-name">Gratuito</span>
+            <p>Para conhecer e usar a ZENI no dia a dia.</p>
+          </div>
+          <div class="pricing-price">
+            <strong>R$ 0,00</strong>
+            <span>para sempre</span>
+          </div>
+          <p class="plan-limit">Até 100 mensagens por conversa</p>
+          <ul class="pricing-features">
+            <li>Até 100 mensagens por conversa</li>
+            <li>Acesso ao modelo de IA padrão</li>
+            <li>Histórico de conversas</li>
+            <li>Recursos básicos da ZENI</li>
+          </ul>
+          <button class="pricing-button" type="button" data-plan-action="free">Usar gratuitamente</button>
+        </article>
+
+        <article class="pricing-card pricing-card-popular" data-plan-card="plus">
+          <span class="popular-badge">POPULAR</span>
+          <div class="pricing-card-heading">
+            <span class="pricing-plan-name">Plus</span>
+            <p>Mais recursos para suas ideias avançarem.</p>
+          </div>
+          <div class="pricing-price">
+            <strong>R$ 15,99</strong>
+            <span>por mês</span>
+          </div>
+          <p class="plan-limit">Até 100 mensagens por conversa</p>
+          <ul class="pricing-features">
+            <li>Até 100 mensagens por conversa</li>
+            <li>Acesso a modelos de IA mais avançados</li>
+            <li>Respostas mais rápidas, quando disponíveis</li>
+            <li>Histórico e contexto ampliados</li>
+            <li>Recursos adicionais da ZENI</li>
+          </ul>
+          <button class="pricing-button pricing-button-primary" type="button" data-plan-action="plus" disabled>Indisponível</button>
+        </article>
+
+        <article class="pricing-card" data-plan-card="pro">
+          <div class="pricing-card-heading">
+            <span class="pricing-plan-name">Pro</span>
+            <p>Potência para levar seus projetos mais longe.</p>
+          </div>
+          <div class="pricing-price">
+            <strong>R$ 29,99</strong>
+            <span>por mês</span>
+          </div>
+          <p class="plan-limit">Conversas ilimitadas no histórico</p>
+          <ul class="pricing-features">
+            <li>Conversas ilimitadas no histórico</li>
+            <li>Acesso aos modelos mais avançados disponíveis</li>
+            <li>Prioridade de processamento, quando disponível</li>
+            <li>Histórico e contexto ampliados</li>
+            <li>Acesso aos recursos avançados da ZENI</li>
+          </ul>
+          <button class="pricing-button" type="button" data-plan-action="pro" disabled>Indisponível</button>
+        </article>
+      </section>
+
+      <p class="pricing-disclaimer">
+        Assinaturas pagas estão indisponíveis no momento. Nenhuma cobrança será iniciada nesta página.
+      </p>
+      <div class="plans-feedback" id="plansFeedback" role="status" aria-live="polite" hidden></div>
+    </main>
+    <script src="/plans.js?v=zeni-chat-1" defer></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#09090D">
+    <meta name="description" content="ZENI AI — uma inteligência artificial para pensar, criar e resolver.">
+    <title>ZENI AI — Sua inteligência, sem limites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=zeni-chat-1">
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="sidebar-scrim" id="sidebarScrim"></div>
+      <aside class="sidebar" id="sidebar" aria-label="Barra lateral">
+        <a class="brand" href="/" aria-label="ZENI AI, início">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-name">ZENI<span>AI</span></span>
+        </a>
+        <button class="new-chat-button" id="newChatButton" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          <span>Nova conversa</span>
+          <span class="shortcut">⌘ K</span>
+        </button>
+        <div class="history-heading"><span>RECENTES</span></div>
+        <nav class="conversation-list" id="conversationList" aria-label="Conversas recentes"></nav>
+        <div class="sidebar-footer">
+          <div class="connection-indicator" id="connectionIndicator">
+            <span class="status-dot"></span>
+            <span id="connectionLabel">Verificando conexão...</span>
+          </div>
+          <button class="settings-button" id="settingsButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Z"/><path d="m19.4 15 .1.1a1.8 1.8 0 1 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.3a1.8 1.8 0 1 1-3.6 0v-.2a1.8 1.8 0 0 0-3-1l-.1.1a1.8 1.8 0 1 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3h-.3a1.8 1.8 0 1 1 0-3.6h.2a1.8 1.8 0 0 0 1-3l-.1-.1a1.8 1.8 0 1 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.3a1.8 1.8 0 1 1 3.6 0v.2a1.8 1.8 0 0 0 3 1l.1-.1a1.8 1.8 0 1 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.3a1.8 1.8 0 1 1 0 3.6h-.2a1.8 1.8 0 0 0-1 3Z"/></svg>
+            <span>Configurações</span>
+          </button>
+          <div class="user-profile">
+            <img class="user-avatar" id="userAvatar" alt="" hidden>
+            <div class="user-avatar" id="avatarFallback" aria-hidden="true">Z</div>
+            <div class="profile-copy">
+              <strong id="profileName">Entre na sua conta</strong>
+              <span id="profileEmail">Histórico privado</span>
+              <small id="profilePlan">ZENI Free</small>
+            </div>
+            <button class="auth-button" id="authButton" type="button">Entrar</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <button class="mobile-menu-button icon-button" id="mobileMenuButton" type="button" aria-label="Abrir menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+          <div class="model-label"><span class="model-spark">✳</span><span>ZENI <span class="muted-label">INTELLIGENCE</span></span><span class="model-chevron">⌄</span></div>
+          <div class="topbar-actions">
+            <a class="topbar-plans-link" href="/plans.html">Planos <span aria-hidden="true">↗</span></a>
+            <button class="top-settings-button icon-button" id="topSettingsButton" type="button" aria-label="Configurações">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.2h-2.6v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H6v-2.6h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.8-1.8.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V5h2.6v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.2v2.6h-.2a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="chat-scroll" id="chatScroll">
+          <div class="welcome-screen" id="welcomeScreen">
+            <div class="welcome-orbit"><div class="welcome-logo"><span></span><span></span><span></span></div></div>
+            <div class="eyebrow"><span class="eyebrow-line"></span>INTELIGÊNCIA QUE IMPULSIONA<span class="eyebrow-line"></span></div>
+            <h1>O que vamos<br><span>descobrir</span> hoje?</h1>
+            <p class="welcome-description">Ideias melhores começam com uma boa conversa.<br>Estou aqui para ajudar você a chegar mais longe.</p>
+            <div class="auth-prompt" id="authPrompt" hidden>
+              <strong>Converse sem criar uma conta</strong>
+              <p>Entre para salvar seu histórico e acessar os recursos da sua conta.</p>
+              <button class="auth-button" id="loginButton" type="button">Entrar ou criar conta</button>
+            </div>
+            <div class="suggestion-grid">
+              <button class="suggestion-card" data-prompt="Me ajude a organizar minhas ideias e criar um plano para esta semana.">
+                <span class="suggestion-icon">↗</span><span><strong>Organize suas ideias</strong><small>Transforme planos em ação</small></span><span class="suggestion-arrow">↗</span>
+              </button>
+              <button class="suggestion-card" data-prompt="Quero aprender algo novo hoje. Sugira um tema interessante e me explique de forma simples.">
+                <span class="suggestion-icon">⌘</span><span><strong>Aprenda algo novo</strong><small>Explore um mundo de possibilidades</small></span><span class="suggestion-arrow">↗</span>
+              </button>
+              <button class="suggestion-card" data-prompt="Me ajude a criar uma ideia original para um projeto pessoal.">
+                <span class="suggestion-icon">✳</span><span><strong>Crie algo incrível</strong><small>Dê vida à sua próxima ideia</small></span><span class="suggestion-arrow">↗</span>
+              </button>
+              <button class="suggestion-card" data-prompt="Explique inteligência artificial generativa em linguagem simples, com exemplos práticos.">
+                <span class="suggestion-icon">◎</span><span><strong>Descubra e explore</strong><small>Encontre respostas com clareza</small></span><span class="suggestion-arrow">↗</span>
+              </button>
+            </div>
+          </div>
+          <div class="messages" id="messages" aria-live="polite"></div>
+        </section>
+
+        <footer class="composer-area">
+          <div class="composer-wrap">
+            <div class="attachment-list" id="attachmentList"></div>
+            <form class="composer" id="composerForm">
+              <input id="fileInput" type="file" hidden multiple accept=".txt,.md,.csv,.json,.html,.css,.js,.ts,.py,.java,.c,.cpp,.h,.xml,.yaml,.yml,.log">
+              <button class="attach-button icon-button" id="attachButton" type="button" aria-label="Anexar arquivos" title="Anexar arquivos de texto">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20.5 11.5-8.8 8.8a5.2 5.2 0 0 1-7.4-7.4l9.1-9.1a3.5 3.5 0 0 1 5 5l-9.1 9.1a1.7 1.7 0 0 1-2.5-2.5l8.4-8.4"/></svg>
+              </button>
+              <textarea id="messageInput" rows="1" placeholder="Pergunte qualquer coisa..." aria-label="Escreva sua mensagem"></textarea>
+              <div class="composer-actions">
+                <span class="composer-hint">ZENI pode cometer erros. Verifique informações importantes.</span>
+                <button class="send-button" id="sendButton" type="submit" aria-label="Enviar mensagem" disabled>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <dialog class="settings-dialog" id="settingsDialog">
+      <div class="dialog-header"><div><span class="dialog-kicker">PREFERÊNCIAS</span><h2>Configurações</h2></div><button class="icon-button dialog-close" id="closeSettingsButton" type="button" aria-label="Fechar">×</button></div>
+      <div class="settings-content">
+        <div class="settings-row account-settings-row">
+          <div><strong id="settingsAccountName">Conta</strong><p id="settingsAccountDetails">Entre ou crie uma conta para salvar conversas com segurança.</p></div>
+          <span class="settings-status" id="settingsPlanStatus">ZENI Free</span>
+        </div>
+        <form class="password-migration-form" id="passwordMigrationForm" hidden>
+          <div>
+            <strong>Definir senha para acesso por e-mail</strong>
+            <p>Crie uma senha para continuar acessando esta conta e seu histórico.</p>
+          </div>
+          <label for="migrationPassword">Nova senha</label>
+          <input id="migrationPassword" name="password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required>
+          <button class="auth-button" type="submit">Salvar senha</button>
+          <p class="auth-feedback" id="passwordMigrationFeedback" role="status" aria-live="polite"></p>
+        </form>
+        <section class="plans-section" aria-labelledby="plansHeading">
+          <h3 id="plansHeading">Planos ZENI</h3>
+          <p>Assinaturas pagas estão indisponíveis no momento.</p>
+          <div class="plan-card">
+            <div><strong>ZENI Plus</strong><span id="plusPlanDetails">R$ 15,99 por mês</span></div>
+          </div>
+          <div class="plan-card">
+            <div><strong>ZENI Pro</strong><span id="proPlanDetails">R$ 29,99 por mês</span></div>
+          </div>
+          <a class="plans-settings-link" href="/plans">Ver todos os planos</a>
+          <p class="plans-note">Assinaturas Plus e Pro estão indisponíveis no momento.</p>
+        </section>
+        <div class="settings-row"><div><strong>Conexão com a inteligência</strong><p>A chave de API é configurada apenas no servidor e nunca é enviada ao navegador.</p></div><span class="settings-status" id="settingsStatus">Verificando...</span></div>
+        <div class="settings-row"><div><strong>Modelo</strong><p id="settingsModel">Consultando configuração do servidor...</p></div></div>
+        <div class="settings-note">Configure <code>OPENROUTER_API_KEY</code> no ambiente do servidor para habilitar respostas reais. O modelo pode ser ajustado com a variável <code>ZENI_MODEL</code>.</div>
+      </div>
+    </dialog>
+    <script src="/app.js?v=zeni-chat-1" defer></script>
+  </body>
+</html>
